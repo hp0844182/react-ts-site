@@ -9,6 +9,11 @@ const config = {
     path: path.resolve(__dirname, 'build'),
     filename: 'index.bundle.js'
   },
+  resolve:{
+    alias:{
+      '@':path.resolve(__dirname)
+    }
+  },
   devServer: {
     contentBase: path.join(__dirname, "src")
   },

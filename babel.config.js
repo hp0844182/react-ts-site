@@ -4,7 +4,7 @@ const presets = [
   "@babel/preset-react"
 ];
 const plugins = [
-  ["babel-plugin-react-css-modules",{
+  ["@dr.pogodin/babel-plugin-react-css-modules",{
     generateScopedName: cc.path,
     webpackHotModuleReloading: true,
     handleMissingStyleName: 'warn',
