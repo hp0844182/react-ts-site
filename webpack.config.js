@@ -1,17 +1,27 @@
 const path = require('path')
 const cc = require('./config.js')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 /**@type {import('webpack').Configuration} */
 const config = {
-  entry: path.resolve(__dirname, './src/index.js'),
+  // entry: path.resolve(__dirname, './src/index.js'),
+  entry:{
+    a:path.resolve(__dirname, './src/chunks-test/a.index.js'),
+    b:path.resolve(__dirname, './src/chunks-test/b.index.js'),
+  },
   mode: process.env.NODE_ENV || 'development',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'index.bundle.js'
+    filename: '[name].bundle.js'
   },
-  resolve:{
-    alias:{
-      '@':path.resolve(__dirname)
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname)
+    }
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'async'
     }
   },
   devServer: {
@@ -29,7 +39,7 @@ const config = {
         use: ["style-loader",
           {
             loader: 'css-loader',
-            options: { 
+            options: {
               modules: {
                 localIdentName: cc.path,
               },
@@ -43,6 +53,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src", "index.html"),
     }),
+    new CleanWebpackPlugin()
   ],
 }
 module.exports = config

@@ -6,7 +6,9 @@ import { throttle } from './utils/throttle';
 
 function App() {
   const click = throttle(() => {
-    console.log('hello world');
+    import('lodash-es').then(data=>{
+      console.log(data);
+    })
   }, 1000)
   return (
     <div styleName="box" onClick={click} >

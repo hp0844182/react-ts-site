@@ -4,7 +4,7 @@
   "description": "基于webpack、babel搭建react-typescript项目",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack",
+    "webpack": "NODE_ENV=production webpack",
     "start": "webpack serve"
   },
   "repository": {
@@ -24,6 +24,7 @@
     "@babel/preset-react": "^7.14.5",
     "babel-loader": "^8.2.2",
     "babel-plugin-react-css-modules": "^5.2.6",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
     "css-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
     "postcss-scss": "^4.0.0",
@@ -36,6 +37,7 @@
   },
   "dependencies": {
     "@dr.pogodin/babel-plugin-react-css-modules": "^6.2.0",
+    "lodash-es": "^4.17.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }
